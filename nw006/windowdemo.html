@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>windowdemo</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+</head>
+<body>
+<h1>window api 测试</h1>
+    <script>
+    var gui = require('nw.gui');
+    var win = gui.Window.get();
+    win.on('minimize', function () {
+        var element = document.createElement('div');
+        element.appendChild(document.createTextNode('窗口最小化'));
+        document.body.appendChild(element);
+    });
+    win.minimize();
+    var new_win = gui.Window.get(
+        window.open('http://www.baidu.com')
+    );
+    new_win.x=0;
+    new_win.y=0;
+    new_win.on('focus', function () {
+        var element = document.createElement('div');
+        element.appendChild(document.createTextNode('新窗口被激活'));
+        document.body.appendChild(element);
+        //Unlisten the minimize event
+        win.removeAllListeners('minimize');
+    });
+</script>
+</body>
+</html>

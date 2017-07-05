@@ -1,0 +1,13 @@
+{
+    "name": "nw-demo",
+    "main": "index.html",
+    "width": 200,
+    "height": 250,
+    "window": {
+        "title": "设置默认",
+        "toolbar": false,
+        "width": 400,
+        "height": 500,
+        "show_in_taskbar": true
+    }
+}
